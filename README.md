@@ -33,24 +33,24 @@ This project implements a user registration system where users provide their det
 -  `email`: Email address provided during registeration
 -  `otp`: otp received on registered email
 - **Response**:
-- if Email not registered
-    ```json
-    {
-      "message": "Email not registered!",
-      "status": "error"
-    }
-- If email registered but OTP not valid:
-     ```json
-    {
-      "message": "Invalid OTP!",
-      "status": "error"
-    }
-- If everything correct:
-    ```json
-    {
-      "message": "Email verified successfully!",
-      "status": "success"
-    }
+  - if Email not registered
+      ```json
+      {
+        "message": "Email not registered!",
+        "status": "error"
+      }
+  - If email registered but OTP not valid:
+       ```json
+      {
+        "message": "Invalid OTP!",
+        "status": "error"
+      }
+  - If everything correct:
+      ```json
+      {
+        "message": "Email verified successfully!",
+        "status": "success"
+      }
   
 ### 3. OTP Sending for Login
 - **URL**: `http://localhost:8080/api/send-otp-to-login`
@@ -58,26 +58,26 @@ This project implements a user registration system where users provide their det
 - **Query Parameters**:
 -  `email`: Email address provided during registeration
 - **Response**:
-- if Email not registered
-   ```json
-    {
-      "message": "Email not registered!",
-      "status": "error"
-    }
-     ```
-- If email registered but not verified
+  - if Email not registered
      ```json
-    {
-      "message": "Email not verified!",
-      "status": "error"
-    }
-    ```
-- If everything correct:
-    ``` json
-    {
-      "message": "OTP sent successfully!",
-      "status": "success"
-    }
+      {
+        "message": "Email not registered!",
+        "status": "error"
+      }
+       ```
+  - If email registered but not verified
+       ```json
+      {
+        "message": "Email not verified!",
+        "status": "error"
+      }
+      ```
+  - If everything correct:
+      ``` json
+      {
+        "message": "OTP sent successfully!",
+        "status": "success"
+      }
 
 ### 4. OTP Verification for Login
 - **URL**: `http://localhost:8080/api/verify-otp-to-login`
@@ -86,34 +86,33 @@ This project implements a user registration system where users provide their det
 -  `email`: Email address provided during registeration
 -  `otp`: OTP received by the user for login
 - **Response**:
-- If email not registered
-     ```json
-    {
-      "message": "Email not registered!",
-      "status": "error"
-    }
-    ```
-- If email registered but not verified
-     ```json
-    {
-      "message": "Email not verified!",
-      "status": "error"
-    }
-    ```
-- If email registered but OTP not valid:
-     ```json
-    {
-      "message": "Invalid OTP!",
-      "status": "error"
-    }
-     ```
-- If everything correct:
-    ```json
-    {
-      "message": "OTP sent successfully!",
-      "status": "success"
-    }
-
+  - If email not registered
+       ```json
+      {
+        "message": "Email not registered!",
+        "status": "error"
+      }
+      ```
+  - If email registered but not verified
+       ```json
+      {
+        "message": "Email not verified!",
+        "status": "error"
+      }
+      ```
+  - If email registered but OTP not valid:
+       ```json
+      {
+        "message": "Invalid OTP!",
+        "status": "error"
+      }
+       ```
+  - If everything correct:
+      ```json
+      {
+        "message": "OTP sent successfully!",
+        "status": "success"
+      }
     
 # Usage
 
