@@ -28,7 +28,7 @@ public class RegistrationController {
         //to return response using Map here
 
         //register the user without email verification
-        User registeredUser = userService.registeruser(user);
+        User registeredUser = userService.registerUser(user);
 
         //generate otp and send to user for email verification
         emailSendingService.sendOTPEmail(user.getEmail());

@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-import static com.seyed.otpsending.service.EmailVerificationService.emailOTPMapping;
+
+import static com.seyed.otpsending.service.EmailVerificationService.storedEmailOTP;
 
 @Service
 public class LoginVerificationService {
@@ -23,7 +24,7 @@ public class LoginVerificationService {
             if(userService.isEmailVerified(email)){
                 String otp = emailSendingService.generateOTP();
 
-                emailOTPMapping.put(email,otp);
+                storedEmailOTP.put(email,otp);
 
                 //send otp to user's email id
                 emailSendingService.sendOTPLogin(email);
@@ -42,7 +43,7 @@ public class LoginVerificationService {
     }
 
     public Map<String, String> verifyOTPtoLogin(String email, String otp) {
-        String storedOTP = emailOTPMapping.get(email);
+        String storedOTP = storedEmailOTP.get(email);
 
         Map<String,String> response  = new HashMap<>();
 
@@ -52,7 +53,7 @@ public class LoginVerificationService {
             if(userService.isEmailVerified(email)){
                 if(storedOTP!=null && storedOTP.equals(otp)){
 //            valid otp
-                    emailOTPMapping.remove(email); //once verified otp, remove from otp generated map
+                    storedEmailOTP.remove(email); //once verified otp, remove from otp generated map
                     response.put("status","success");
                     response.put("message","OTP verified successfully!");
                 }else {
@@ -68,8 +69,6 @@ public class LoginVerificationService {
             response.put("status","error");
             response.put("message","Email not registered!");
         }
-
-
         return  response;
     }
 }
